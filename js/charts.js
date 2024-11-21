@@ -500,3 +500,4 @@ document.addEventListener('DOMContentLoaded', function() {
     createImplementationContextChart();
     // Add any additional chart initializations here
 });
+

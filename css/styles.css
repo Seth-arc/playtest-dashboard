@@ -1,18 +1,13 @@
 /* styles.css */
 :root {
-    --primary-color: #026447;
-    --primary-light: #038C60;
-    --primary-lighter: #04B47B;
-    --primary-lightest: #05DD96;
-    --primary-accent: #082f22;
-    --background-color: #f5f7fa;
-    --card-background: #ffffff;
-    --text-primary: #1a202c;
-    --text-secondary: #4a5568;
-    --border-color: #e2e8f0;
-    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px rgba(2, 100, 71, 0.1);
-    --border-radius: 16px;
+    :root {
+        --primary-color: #026447;
+        --primary-light: #038C60;
+        --primary-lighter: #04B47B;
+        --primary-lightest: #05DD96;
+        --background-color: #f8fafb;
+        --card-background: #ffffff;
+    }
 }
 
 /* Global Styles */
@@ -91,11 +86,15 @@ section h2::after {
 /* Chart Section Styles */
 .chart-section {
     background: var(--card-background);
-    border-radius: var(--border-radius);
+    border-radius: 16px;
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px rgba(2, 100, 71, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.chart-section:hover {
+    transform: translateY(-2px);
 }
 
 .chart-section h3 {

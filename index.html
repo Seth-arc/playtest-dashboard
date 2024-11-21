@@ -8,14 +8,95 @@
     <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+    <style>
+        :root {
+            --primary-color: #026447;
+            --primary-light: #038C60;
+            --primary-lighter: #04B47B;
+            --background-color: #f8fafb;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+        }
+
+        .header-subtitle {
+            color: #f3f4f6;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+        }
+
+        .photo-placeholder {
+            background-color: #f3f4f6;
+            border-radius: 12px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-light);
+            border: 1px dashed var(--primary-lighter);
+            margin: 1.5rem 0;
+        }
+
+        section {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 6px rgba(2, 100, 71, 0.1);
+        }
+
+        .chart-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(2, 100, 71, 0.05);
+        }
+
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
 </head>
 <body class="bg-gray-100">
     <div class="container mx-auto px-4 py-8">
         <!-- Header -->
         <header class="mb-12 text-center">
             <h1 class="text-4xl font-bold text-[#026447] mb-4">Capital & The Other</h1>
-            <p class="text-gray-600">Playtest Session Data Visualizations and Analysis</p>
+            <p class="text-xl header-subtitle">Playtest Session Data Visualizations and Analysis</p>
         </header>
+
+<!-- Introduction Section -->
+<section id="introduction" class="mb-12">
+    <h2 class="text-2xl font-bold text-[#026447] mb-6">Introduction</h2>
+    <div class="prose max-w-none text-gray-700">
+        <p class="mb-4">
+            Capital & The Other represents an innovative approach to teaching complex socioeconomic concepts through gamification. This playtest session, conducted with a diverse group of undergraduate students, aimed to evaluate the game's effectiveness in conveying key concepts about different forms of capital and their intersections with systemic barriers and opportunities.
+        </p>
+        
+        <p class="mb-4">
+            The playtest focused on several critical aspects of the game, including component effectiveness, learning outcomes, and player engagement. Through careful observation and detailed feedback collection, we gathered comprehensive data about how participants interacted with various game elements and understood the underlying educational concepts. The session provided valuable insights into both the mechanical aspects of gameplay and the pedagogical effectiveness of the experience.
+        </p>
+        
+        <p class="mb-4">
+            This visualization dashboard presents a detailed analysis of the playtest data, highlighting key findings across multiple dimensions of the game experience. From demographic information to learning assessments and implementation recommendations, the following sections offer a comprehensive overview of how Capital & The Other performs as both an educational tool and an engaging game experience. These insights will guide future iterations and improvements to enhance both the gameplay experience and educational impact.
+        </p>
+    </div>
+</section>
+
+        <section class="mb-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="photo-placeholder">Playtest Session Photo 1</div>
+                <div class="photo-placeholder">Playtest Session Photo 2</div>
+                <div class="photo-placeholder">Playtest Session Photo 3</div>
+            </div>
+        </section>
 
         <!-- Demographics Section -->
         <section id="demographics" class="mb-12">
@@ -40,6 +121,19 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="prose max-w-none text-gray-700">
+                <p class="mb-4">
+                    Capital & The Other represents an innovative approach to teaching complex socioeconomic concepts through gamification. This playtest session, conducted with a diverse group of undergraduate students, aimed to evaluate the game's effectiveness in conveying key concepts about different forms of capital and their intersections with systemic barriers and opportunities.
+                </p>
+                
+                <p class="mb-4">
+                    The playtest focused on several critical aspects of the game, including component effectiveness, learning outcomes, and player engagement. Through careful observation and detailed feedback collection, we gathered comprehensive data about how participants interacted with various game elements and understood the underlying educational concepts. The session provided valuable insights into both the mechanical aspects of gameplay and the pedagogical effectiveness of the experience.
+                </p>
+                
+                <p class="mb-4">
+                    This visualization dashboard presents a detailed analysis of the playtest data, highlighting key findings across multiple dimensions of the game experience. From demographic information to learning assessments and implementation recommendations, the following sections offer a comprehensive overview of how Capital & The Other performs as both an educational tool and an engaging game experience. These insights will guide future iterations and improvements to enhance both the gameplay experience and educational impact.
+                </p>
             </div>
         </section>
 
@@ -200,9 +294,19 @@
                 <!-- Recommendations will be populated by JavaScript -->
             </div>
         </section>
+    
+        <section id="demographics" class="mb-12">
+            <h2 class="text-2xl font-bold text-[#026447] mb-6">Looking Forward</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="chart-section">
+                    <h3 class="text-lg font-semibold text-[#026447] mb-4">Participant Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="demographicsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
     </div>
 
-    <script src="js/data.js"></script>
-    <script src="js/charts.js"></script>
 </body>
 </html>
