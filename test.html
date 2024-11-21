@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Test Page</title>
+    <!-- Add console logger for testing -->
+    <script>
+        console.log('Page loading started');
+        window.addEventListener('error', function(e) {
+            console.log('Error:', e.message);
+        });
+    </script>
+    <!-- Load dependencies -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-2xl font-bold mb-4">Dashboard Test Page</h1>
+        
+        <!-- Test Section -->
+        <div class="bg-white rounded-lg shadow p-4 mb-4">
+            <h2 class="text-xl font-semibold mb-2">Test Results</h2>
+            <div id="testResults" class="space-y-2"></div>
+        </div>
+
+        <!-- Sample Chart -->
+        <div class="bg-white rounded-lg shadow p-4">
+            <h2 class="text-xl font-semibold mb-2">Sample Chart</h2>
+            <div class="h-64">
+                <canvas id="testChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load test script -->
+    <script>
+        function addTestResult(message, success) {
+            const resultDiv = document.getElementById('testResults');
+            const result = document.createElement('div');
+            result.className = `p-2 rounded ${success ? 'bg-green-100' : 'bg-red-100'}`;
+            result.textContent = message;
+            resultDiv.appendChild(result);
+        }
+
+        // Test data.js loading
+        try {
+            fetch('js/data.js')
+                .then(response => {
+                    if (!response.ok) throw new Error('data.js not found');
+                    addTestResult('✅ data.js file found', true);
+                })
+                .catch(error => addTestResult('❌ Error loading data.js: ' + error.message, false));
+        } catch (e) {
+            addTestResult('❌ Error testing data.js: ' + e.message, false);
+        }
+
+        // Test charts.js loading
+        try {
+            fetch('js/charts.js')
+                .then(response => {
+                    if (!response.ok) throw new Error('charts.js not found');
+                    addTestResult('✅ charts.js file found', true);
+                })
+                .catch(error => addTestResult('❌ Error loading charts.js: ' + error.message, false));
+        } catch (e) {
+            addTestResult('❌ Error testing charts.js: ' + e.message, false);
+        }
+
+        // Test styles.css loading
+        try {
+            fetch('css/styles.css')
+                .then(response => {
+                    if (!response.ok) throw new Error('styles.css not found');
+                    addTestResult('✅ styles.css file found', true);
+                })
+                .catch(error => addTestResult('❌ Error loading styles.css: ' + error.message, false));
+        } catch (e) {
+            addTestResult('❌ Error testing styles.css: ' + e.message, false);
+        }
+    </script>
+
+    <!-- Load actual data and charts -->
+    <script src="js/data.js"></script>
+    <script src="js/charts.js"></script>
+</body>
+</html>

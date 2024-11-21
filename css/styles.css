@@ -1,0 +1,65 @@
+/* styles.css */
+:root {
+    --primary-color: #026447;
+    --primary-light: #038C60;
+    --primary-lighter: #04B47B;
+    --primary-lightest: #05DD96;
+    --primary-accent: #082f22;
+}
+
+.container {
+    max-width: 1400px;
+}
+
+/* Chart container styles */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; /* This creates a 4:3 aspect ratio */
+    font-family: Montserrat, Helvetica, sans-serif;
+}
+
+.chart-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+section {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Chart section specific styles */
+.chart-section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 0.5rem;
+}
+
+/* Responsive chart containers */
+@media (max-width: 768px) {
+    .chart-container {
+        padding-bottom: 100%; /* Square aspect ratio on mobile */
+    }
+}
+
+/* Print styles */
+@media print {
+    .container {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}
