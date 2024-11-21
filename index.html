@@ -6,6 +6,7 @@
     <title>Playtest Session Analysis</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-100">
@@ -180,9 +181,22 @@
         </section>
 
         <!-- Recommendations Section -->
-        <section id="recommendations" class="mb-12">
+        <section id="playerExperience" class="mb-12">
             <h2 class="text-2xl font-bold text-[#026447] mb-6">Recommendations</h2>
-            <div id="recommendationsList" class="prose max-w-none">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="chart-section">
+                <h3 class="text-lg font-semibold text-[#026447] mb-4">Recommendations by Type</h3>
+                <div class="chart-container">
+                    <canvas id="recommendationsByTypeChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-section">
+                <h3 class="text-lg font-semibold text-[#026447] mb-4">Implementation Context</h3>
+                <div class="chart-container">
+                    <canvas id="implementationContextChart"></canvas>
+                </div>
+            </div>
+        </div>
                 <!-- Recommendations will be populated by JavaScript -->
             </div>
         </section>
