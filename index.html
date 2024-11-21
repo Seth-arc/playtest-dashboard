@@ -70,6 +70,14 @@
             <h1 class="text-4xl font-bold text-[#026447] mb-4">Capital & The Other</h1>
             <p class="text-xl header-subtitle">Playtest Session Data Visualizations and Analysis</p>
         </header>
+        <section class="mb-12">
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="photo-placeholder">Playtest Session Photo 1</div>
+                <div class="photo-placeholder">Playtest Session Photo 2</div>
+                <div class="photo-placeholder">Playtest Session Photo 3</div>
+            </div>
+        </section>
 
 <!-- Introduction Section -->
 <section id="introduction" class="mb-12">
@@ -89,18 +97,10 @@
     </div>
 </section>
 
-        <section class="mb-12">
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="photo-placeholder">Playtest Session Photo 1</div>
-                <div class="photo-placeholder">Playtest Session Photo 2</div>
-                <div class="photo-placeholder">Playtest Session Photo 3</div>
-            </div>
-        </section>
 
         <!-- Demographics Section -->
         <section id="demographics" class="mb-12">
-            <h2 class="text-2xl font-bold text-[#026447] mb-6">Demographics and Player Background</h2>
+            <h2 class="text-2xl font-bold text-[#026447] mb-6">Player Demographics</h2>
             <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="chart-section">
@@ -122,45 +122,7 @@
                     </div>
                 </div>
             </div>
-            <div class="prose max-w-none text-gray-700">
-                <p class="mb-4">
-                    Capital & The Other represents an innovative approach to teaching complex socioeconomic concepts through gamification. This playtest session, conducted with a diverse group of undergraduate students, aimed to evaluate the game's effectiveness in conveying key concepts about different forms of capital and their intersections with systemic barriers and opportunities.
-                </p>
-                
-                <p class="mb-4">
-                    The playtest focused on several critical aspects of the game, including component effectiveness, learning outcomes, and player engagement. Through careful observation and detailed feedback collection, we gathered comprehensive data about how participants interacted with various game elements and understood the underlying educational concepts. The session provided valuable insights into both the mechanical aspects of gameplay and the pedagogical effectiveness of the experience.
-                </p>
-                
-                <p class="mb-4">
-                    This visualization dashboard presents a detailed analysis of the playtest data, highlighting key findings across multiple dimensions of the game experience. From demographic information to learning assessments and implementation recommendations, the following sections offer a comprehensive overview of how Capital & The Other performs as both an educational tool and an engaging game experience. These insights will guide future iterations and improvements to enhance both the gameplay experience and educational impact.
-                </p>
-            </div>
-        </section>
 
-        <!-- Learning Assessment Section -->
-        <section id="learning" class="mb-12">
-            <h2 class="text-2xl font-bold text-[#026447] mb-6">Learning Assessment</h2>
-            <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="chart-section">
-                    <h3 class="text-lg font-semibold text-[#026447] mb-4">Understanding by Concept</h3>
-                    <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
-                    <div class="chart-container">
-                        <div class="chart-wrapper">
-                            <canvas id="understandingChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-                <div class="chart-section">
-                    <h3 class="text-lg font-semibold text-[#026447] mb-4">Learning Preferences</h3>
-                    <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
-                    <div class="chart-container">
-                        <div class="chart-wrapper">
-                            <canvas id="learningPreferencesChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- Game Format Section -->
@@ -218,6 +180,7 @@
         <!-- Player Experience Section -->
         <section id="playerExperience" class="mb-12">
             <h2 class="text-2xl font-bold text-[#026447] mb-6">Player Experience</h2>
+            <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="chart-section">
                     <h3 class="text-lg font-semibold text-[#026447] mb-4">Engagement Levels</h3>
@@ -238,22 +201,36 @@
             </div>
         </section>
 
-        <!-- Format Preferences Section -->
-        <section id="formatPreferences" class="mb-12">
-            <h2 class="text-2xl font-bold text-[#026447] mb-6">Format Preferences</h2>
-            <div class="chart-section">
-                <h3 class="text-lg font-semibold text-[#026447] mb-4">Preferred Game Formats</h3>
-                <div class="chart-container">
-                    <div class="chart-wrapper">
-                        <canvas id="formatPreferencesChart"></canvas>
+                <!-- Learning Assessment Section -->
+                <section id="learning" class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#026447] mb-6">Learning Assessment</h2>
+                    <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="chart-section">
+                            <h3 class="text-lg font-semibold text-[#026447] mb-4">Understanding by Concept</h3>
+                            <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
+                            <div class="chart-container">
+                                <div class="chart-wrapper">
+                                    <canvas id="understandingChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-section">
+                            <h3 class="text-lg font-semibold text-[#026447] mb-4">Learning Preferences</h3>
+                            <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
+                            <div class="chart-container">
+                                <div class="chart-wrapper">
+                                    <canvas id="learningPreferencesChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
+                </section>
+        
         <!-- Educational Impact Section -->
         <section id="educationalImpact" class="mb-12">
             <h2 class="text-2xl font-bold text-[#026447] mb-6">Educational Impact</h2>
+            <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="chart-section">
                     <h3 class="text-lg font-semibold text-[#026447] mb-4">Learning Outcomes</h3>
@@ -274,9 +251,34 @@
             </div>
         </section>
 
+                <!-- Format Preferences Section -->
+                <section id="formatPreferences" class="mb-12">
+                    <h2 class="text-2xl font-bold text-[#026447] mb-6">Format Preferences</h2>
+                    <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="chart-section">
+                            <h3 class="text-lg font-semibold text-[#026447] mb-4">Preferred Game Formats</h3>
+                            <div class="chart-container">
+                                <div class="chart-wrapper">
+                                    <canvas id="formatPreferencesChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chart-section">
+                            <h3 class="text-lg font-semibold text-[#026447] mb-4">Implementation Context</h3>
+                            <div class="chart-container">
+                                <div class="chart-wrapper">
+                                    <canvas id="implementationContextChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
         <!-- Recommendations Section -->
         <section id="playerExperience" class="mb-12">
             <h2 class="text-2xl font-bold text-[#026447] mb-6">Recommendations</h2>
+            <p class="text-gray-600">The participants were generally homogenous, with slight differences in age.</p><br>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="chart-section">
                 <h3 class="text-lg font-semibold text-[#026447] mb-4">Recommendations by Type</h3>
@@ -285,28 +287,69 @@
                 </div>
             </div>
             <div class="chart-section">
-                <h3 class="text-lg font-semibold text-[#026447] mb-4">Implementation Context</h3>
+                <h3 class="text-lg font-semibold text-[#026447] mb-4">Priority Matrix</h3>
                 <div class="chart-container">
-                    <canvas id="implementationContextChart"></canvas>
+                    <canvas id="priorityMatrixChart"></canvas>
                 </div>
             </div>
         </div>
-                <!-- Recommendations will be populated by JavaScript -->
-            </div>
-        </section>
-    
-        <section id="demographics" class="mb-12">
-            <h2 class="text-2xl font-bold text-[#026447] mb-6">Looking Forward</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="chart-section">
-                    <h3 class="text-lg font-semibold text-[#026447] mb-4">Participant Distribution</h3>
-                    <div class="chart-container">
-                        <canvas id="demographicsChart"></canvas>
-                    </div>
-                </div>
+        <div class="recommendation-dropdown">
+            <button class="dropdown-button bg-white w-full text-left px-6 py-4 rounded-lg shadow-sm flex justify-between items-center">
+                <span class="text-lg font-semibold text-[#026447] flex items-center">
+                    <span class="w-2 h-6 bg-[#026447] mr-3 rounded-sm"></span>
+                    Game Design
+                </span>
+                <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="dropdown-content hidden bg-white mt-2 rounded-lg p-6 shadow-sm" id="gameDesignList"></div>
+        </div>
+
+        <div class="recommendation-dropdown">
+            <button class="dropdown-button bg-white w-full text-left px-6 py-4 rounded-lg shadow-sm flex justify-between items-center">
+                <span class="text-lg font-semibold text-[#026447] flex items-center">
+                    <span class="w-2 h-6 bg-[#026447] mr-3 rounded-sm"></span>
+                    Game Mechanics
+                </span>
+                <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="dropdown-content hidden bg-white mt-2 rounded-lg p-6 shadow-sm" id="gameMechanicsList"></div>
+        </div>
+
+        <div class="recommendation-dropdown">
+            <button class="dropdown-button bg-white w-full text-left px-6 py-4 rounded-lg shadow-sm flex justify-between items-center">
+                <span class="text-lg font-semibold text-[#026447] flex items-center">
+                    <span class="w-2 h-6 bg-[#026447] mr-3 rounded-sm"></span>
+                    Educational Integration
+                </span>
+                <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="dropdown-content hidden bg-white mt-2 rounded-lg p-6 shadow-sm" id="educationalList"></div>
+        </div>
+
+        <div class="recommendation-dropdown">
+            <button class="dropdown-button bg-white w-full text-left px-6 py-4 rounded-lg shadow-sm flex justify-between items-center">
+                <span class="text-lg font-semibold text-[#026447] flex items-center">
+                    <span class="w-2 h-6 bg-[#026447] mr-3 rounded-sm"></span>
+                    Implementation Suggestions
+                </span>
+                <svg class="w-6 h-6 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+            </button>
+            <div class="dropdown-content hidden bg-white mt-2 rounded-lg p-6 shadow-sm" id="implementationList"></div>
+        </div>
+    </div>
+</div>
+
+        </div>   <!-- Recommendations will be populated by JavaScript -->
             </div>
         </section>
     </div>
-
 </body>
 </html>

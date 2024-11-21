@@ -474,11 +474,240 @@ const createImplementationContextChart = () => {
     }
 };
 
+// 1. Interactive Treemap Chart for Recommendation Categories
+const createRecommendationsTreemap = () => {
+    const ctx = document.getElementById('recommendationsTreemapChart')?.getContext('2d');
+    if (ctx) {
+        const categories = playtestData.recommendations.map(rec => ({
+            category: rec.category,
+            count: rec.items.length,
+            percentage: (rec.items.length / playtestData.recommendations.reduce((acc, curr) => acc + curr.items.length, 0) * 100).toFixed(1)
+        }));
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: categories.map(cat => `${cat.category} (${cat.percentage}%)`),
+                datasets: [{
+                    data: categories.map(cat => cat.count),
+                    backgroundColor: [
+                        'rgba(42, 72, 88, 0.8)',
+                        'rgba(84, 123, 151, 0.8)',
+                        'rgba(136, 166, 188, 0.8)',
+                        'rgba(212, 163, 115, 0.8)'
+                    ],
+                    borderColor: 'white',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                ...commonOptions,
+                aspectRatio: 1.5,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            font: {
+                                family: 'Montserrat',
+                                size: 12
+                            },
+                            padding: 20
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => {
+                                const category = playtestData.recommendations[context.dataIndex];
+                                return `${category.items.length} recommendations`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    }
+};
+
+// 2. Priority Matrix Bubble Chart
+const createPriorityMatrix = () => {
+    const ctx = document.getElementById('priorityMatrixChart')?.getContext('2d');
+    if (ctx) {
+        const categories = playtestData.recommendations.map((rec, index) => ({
+            x: index + 1,  // Implementation complexity
+            y: rec.items.length,  // Number of recommendations
+            r: rec.items.length * 5,  // Bubble size
+            category: rec.category
+        }));
+
+        new Chart(ctx, {
+            type: 'bubble',
+            data: {
+                datasets: [{
+                    label: 'Recommendation Categories',
+                    data: categories,
+                    backgroundColor: 'rgba(2, 100, 71, 0.6)',  // Updated to match theme
+                    borderColor: 'rgba(2, 100, 71, 0.8)',      // Updated to match theme
+                    borderWidth: 2,
+                    hoverBackgroundColor: 'rgba(2, 100, 71, 0.8)',
+                    hoverBorderColor: '#026447',
+                    pointStyle: 'circle'
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Implementation Priority',
+                            color: '#026447'
+                        },
+                        grid: {
+                            display: false
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Number of Recommendations',
+                            color: '#026447'
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: (context) => {
+                                const data = context.raw;
+                                return [
+                                    `Category: ${data.category}`,
+                                    `Recommendations: ${data.y}`,
+                                    `Priority Level: ${data.x}`
+                                ];
+                            }
+                        },
+                        backgroundColor: 'rgba(2, 100, 71, 0.8)',
+                        titleColor: '#ffffff',
+                        bodyColor: '#ffffff',
+                        borderColor: '#026447',
+                        borderWidth: 1
+                    }
+                }
+            }
+        });
+    }
+};
+
+// 3. Implementation Context Radar Chart
+const createImplementationContextRadar = () => {
+    const ctx = document.getElementById('implementationContextChart')?.getContext('2d');
+    if (ctx) {
+        new Chart(ctx, {
+            type: 'radar',
+            data: {
+                labels: Object.keys(playtestData.recommendedContexts),
+                datasets: [{
+                    label: 'Implementation Suitability',
+                    data: Object.values(playtestData.recommendedContexts),
+                    backgroundColor: 'rgba(42, 72, 88, 0.2)',
+                    borderColor: 'rgba(42, 72, 88, 0.8)',
+                    borderWidth: 2,
+                    pointBackgroundColor: 'rgba(212, 163, 115, 0.8)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(42, 72, 88, 1)'
+                }]
+            },
+            options: {
+                ...commonOptions,
+                scales: {
+                    r: {
+                        beginAtZero: true,
+                        max: 5,
+                        ticks: {
+                            stepSize: 1
+                        }
+                    }
+                }
+            }
+        });
+    }
+};
+
+// Function to populate recommendation lists
+const populateRecommendations = () => {
+    const categories = {
+        'Game Design': 'gameDesignList',
+        'Game Mechanics': 'gameMechanicsList',
+        'Educational Integration': 'educationalList',
+        'Implementation Suggestions': 'implementationList'
+    };
+
+    // Populate content and set up dropdowns
+    playtestData.recommendations.forEach(rec => {
+        const listElement = document.getElementById(categories[rec.category]);
+        if (listElement) {
+            const ul = document.createElement('ul');
+            ul.className = 'space-y-2 text-gray-700';
+            
+            rec.items.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'recommendation-item flex items-start mb-2';
+                li.style.transitionDelay = `${index * 50}ms`;
+                li.innerHTML = `
+                    <svg class="w-4 h-4 mt-1 mr-2 text-[#026447]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                    </svg>
+                    <span>${item}</span>
+                `;
+                ul.appendChild(li);
+            });
+            listElement.appendChild(ul);
+        }
+    });
+
+    // Set up dropdown functionality
+    const dropdownButtons = document.querySelectorAll('.dropdown-button');
+    dropdownButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const content = button.nextElementSibling;
+            const isOpen = !content.classList.contains('hidden');
+            
+            // Close all dropdowns
+            document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+                dropdown.classList.add('hidden');
+                dropdown.previousElementSibling.classList.remove('active');
+                dropdown.querySelectorAll('.recommendation-item').forEach(item => {
+                    item.classList.remove('show');
+                });
+            });
+
+            // If clicking on a closed dropdown, open it
+            if (!isOpen) {
+                content.classList.remove('hidden');
+                button.classList.add('active');
+                
+                // Animate items
+                setTimeout(() => {
+                    content.querySelectorAll('.recommendation-item').forEach(item => {
+                        item.classList.add('show');
+                    });
+                }, 50);
+            }
+        });
+    });
+};
+
 // Add to your DOMContentLoaded event listener
 document.addEventListener('DOMContentLoaded', function() {
     // ... existing chart initializations ...
 
 });
+
+document.addEventListener('DOMContentLoaded', populateRecommendations);
 
 // Initialize all charts
 document.addEventListener('DOMContentLoaded', function() {
@@ -498,6 +727,8 @@ document.addEventListener('DOMContentLoaded', function() {
     createRecommendationsByTypeChart();
     createRecommendationPriorityChart();
     createImplementationContextChart();
+    createRecommendationsTreemap();
+    createPriorityMatrix();
     // Add any additional chart initializations here
 });
 
